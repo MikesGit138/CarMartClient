@@ -8,6 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class WelcomeComponent implements OnInit {
 
   constructor() { }
+  name: string = 'User';
+  buttons = [
+    "Location",
+    "Location",
+    "Location",
+    "Location",
+    "Location",
+    "Location",
+    "Location",
+    "Location",
+  ]
 
   ngOnInit(): void {
   }
