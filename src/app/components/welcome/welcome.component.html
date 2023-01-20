@@ -1,14 +1,22 @@
-<div class="flex flex-col p-24 gap-24">
+<div class="bg-neutral-900 p-12">
+<!--  Sidebar-->
+  <div>
+    <img class="focus:fill-blue-500 w-10 h-10 hover:scale-110 cursor-pointer transition-fast" src="../../../assets/sidebar_toggle.svg" alt="">
+  </div>
+<!--  Content-->
+  <div class="flex flex-col p-24 gap-24">
     <div class="">
-        <h1 class="font-bold text-6xl mb-6">Welcome back, <span class="text-primary">{{name}}</span></h1>
-        <p class="text-secondary-text text-2xl">Let's get back to work.</p>
+      <h1 class="font-black text-6xl mb-6 pointer-events-none">Welcome back, <span class="text-primary">{{name}}</span></h1>
+      <p class="font-medium text-secondary-text text-2xl pointer-events-none">Let's get to work.</p>
     </div>
     <div class="">
-        <div>
-            <h4 class="uppercase font-bold text-2xl mb-5 tracking-[.15em]">Your Locations</h4>
-            <div class="grid grid-flow-col grid-rows-3">
-                <button *ngFor="let button of buttons" class="uppercase bg-secondary rounded-xl m-4 p-7 font-bold tracking-[.1em] hover:bg-primary hover:text-secondary">{{button}}</button>
-            </div>
+      <div>
+        <h4 class="uppercase font-bold text-2xl mb-5 tracking-[.15em] pointer-events-none">Your Locations</h4>
+        <div class="grid grid-flow-col grid-rows-3">
+          <button *ngFor="let button of buttons" class="uppercase bg-secondary rounded-xl m-4 p-7 font-semibold tracking-[.1em] hover:bg-primary transition-faster hover:text-secondary">{{button}}</button>
         </div>
+      </div>
     </div>
+  </div>
 </div>
+
