@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
+  showLogErr = false
   constructor(private authService: AuthService, public router: Router, private jwtService: JwtService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,10 @@ export class LoginComponent implements OnInit {
       username: new FormControl('',[Validators.required]),
       password: new FormControl('',[Validators.required])
     })
+  }
+
+  showErrMsg(){
+      this.showLogErr = !this.showLogErr
   }
 
   loginProcess(){
