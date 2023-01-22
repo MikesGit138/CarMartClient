@@ -1,10 +1,8 @@
-<div class="p-12">
+<div class="p-12 tablet:pt-12 tablet:px-6 phone:p-4 flex">
   <!--  Sidebar-->
   <div>
     <svg
-      class="hover:fill-primary fill-white hover:scale-110 cursor-pointer transition-fast"
-      width="2.5rem"
-      height="2.5rem"
+      class="w-10 h-10 phone:w-7 phone:h-7 hover:fill-primary fill-white hover:scale-110 cursor-pointer transition-fast"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -18,9 +16,9 @@
     </svg>
   </div>
   <!--  Content-->
-  <div class="flex flex-col p-24 gap-24">
+  <div class="flex flex-col w-full p-24 tablet:p-8 phone:p-4 gap-24">
     <div class="">
-      <h1 class="font-black text-6xl mb-6 pointer-events-none">
+      <h1 class="font-black text-6xl phone:text-4xl mb-6 pointer-events-none">
         Welcome back, <span class="text-primary">{{ name }}</span>
       </h1>
       <p class="font-medium text-secondary-text text-2xl pointer-events-none">
@@ -34,10 +32,10 @@
         >
           Your Locations
         </h4>
-        <div class="grid grid-flow-col grid-rows-3">
+        <div class="grid grid-cols-3 tablet:grid-cols-2 phone:grid-cols-1 gap-4">
           <button
             *ngFor="let button of buttons"
-            class="uppercase bg-secondary rounded-xl m-4 p-7 font-semibold tracking-[.1em] hover:bg-primary transition-faster hover:text-secondary"
+            class="uppercase bg-secondary rounded-xl p-7 font-semibold tracking-[.1em] hover:bg-primary transition-faster hover:text-secondary"
           >
             {{ button }}
           </button>
