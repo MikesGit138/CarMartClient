@@ -9,6 +9,6 @@ import {Observable} from 'rxjs'
 export class SuperuserService {
 
   constructor(http: HttpClient) {}
-  endpoint: string = `${environment.apiURL}/auth/login`
+  endpoint: string = `${environment.baseURL}/auth/login`
 
 }
