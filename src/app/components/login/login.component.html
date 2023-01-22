@@ -1,20 +1,23 @@
 <div class="h-screen w-full bg-neutral-900 pt-24">
   <h1 class="uppercase tracking-[0.5em] font-black text-7xl text-center">The Car Mart</h1>
-  <div class="bg-neutral-800 h-72 w-1/3 rounded-xl bg-opacity-50 backdrop-blur-xl shadow-md !mt-10 !mx-auto !py-8 !px-6">
+  <form class="bg-neutral-800 h-72 w-1/3 rounded-xl bg-opacity-50 backdrop-blur-xl shadow-md !mt-10 !mx-auto !py-8 !px-6" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
     <h3 class="uppercase text-center text-2xl !mb-6">Login</h3>
     <div>
       <label class="uppercase tracking-widest text-lg" for="username_in">Username</label><br/>
       <input
         class="transition-faster !text-[0.85rem] placeholder:!text-neutral-600 focus:outline-0 bg-transparent w-5/6 !px-2 !pt-2 !mb-6 !border-b-2 !border-black/20 focus:!border-blue-500"
         type="text" id="username_in" placeholder="ENTER YOUR USERNAME"
+        formControlName="username"
       />
       <br/>
       <label class="uppercase tracking-widest" for="password_in">Password</label><br/>
       <input
         class="transition-faster !text-[0.85rem] placeholder:!text-neutral-600 focus:outline-0 bg-transparent w-5/6 !px-2 !pt-2 !mb-6 !border-b-2 !border-black/20 focus:!border-blue-500"
         type="password" id="password_in" placeholder="ENTER YOUR PASSWORD"
+        formControlName = "password"
       />
+      <button type="submit">Default</button>
     </div>
-  </div>
-  <img class="absolute bottom-0" src="assets/waves.svg">
+  </form>
+  <!-- <img class="absolute bottom-0" src="assets/waves.svg"> -->
 </div>
