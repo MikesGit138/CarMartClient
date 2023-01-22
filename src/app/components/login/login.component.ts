@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { JwtService } from 'src/app/services/jwt.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,14 +11,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
-  constructor(private authService: AuthService, public router: Router) { }
+  constructor(private authService: AuthService, public router: Router, private jwtService: JwtService) { }
 
   ngOnInit(): void {
     this.initForm()
   }
 
   initForm(){
-    this.formGroup = new FormGroup({
+  this.formGroup = new FormGroup({
       username: new FormControl('',[Validators.required]),
       password: new FormControl('',[Validators.required])
     })
@@ -25,13 +26,13 @@ export class LoginComponent implements OnInit {
 
   loginProcess(){
     if (this.formGroup.valid){
-      this.authService.superLogin(this.formGroup.value).subscribe(res => {
-        if (res){
+      this.jwtService.login(this.formGroup.value).subscribe(res => {
+        if (res.payload.success){
           console.log('everything worked!');
-          console.log(res)
+          // console.log(res.payload)
+          // console.log(res.access_token)
           this.router.navigate(['/welcome'])
         } else {
-          console.log(res);
           console.log('not working like intended');
         }
       })

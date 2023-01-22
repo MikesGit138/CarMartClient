@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JwtService } from 'src/app/services/jwt.service';
 
 @Component({
   selector: 'app-welcome',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public jwtService: JwtService) { }
   name: string = 'User';
   buttons = [
     "Location",
