@@ -19,8 +19,9 @@ $transition-fastest: 75ms;
   color: white;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  background-color: rgb(23 23 23);
 }
 
 .transition-slow {
