@@ -8,7 +8,6 @@
     (ngSubmit)="loginProcess()"
   >
     <h3 class="uppercase text-center text-2xl !mb-16">Login</h3>
-    <p class="text-center text-red-500 font-bold" *ngIf="showLogErr">invalid username or password<sup class="m-1 hover:cursor-pointer" (click)="showErrMsg()">X</sup></p>
     <div>
       <div>
         <label class="uppercase tracking-widest text-lg" for="username_in"
@@ -37,7 +36,6 @@
     </div>
     <div class="flex">
       <button
-        (click)="showErrMsg()"
         type="submit"
         class="!mx-auto bg-secondary-text hover:bg-primary opacity-40 hover:opacity-100 transition-fast hover:scale-105 rounded-lg drop-shadow-md w-36 h-16 uppercase tracking-[.25em]"
       >

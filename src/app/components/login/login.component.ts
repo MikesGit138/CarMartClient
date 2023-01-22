@@ -27,12 +27,13 @@ export class LoginComponent implements OnInit {
 
   showErrMsg(){
       this.showLogErr = !this.showLogErr
+      
   }
 
   loginProcess(){
     if (this.formGroup.valid){
       this.jwtService.login(this.formGroup.value).subscribe(res => {
-        if (res.payload.success){
+        if (res){
           console.log('everything worked!');
           // console.log(res.payload)
           // console.log(res.access_token)
