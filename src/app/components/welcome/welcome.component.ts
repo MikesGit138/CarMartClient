@@ -10,6 +10,7 @@ export class WelcomeComponent implements OnInit {
 
   constructor(public jwtService: JwtService) { }
   name: string = 'User';
+  sidebarToggled = false;
   buttons = [
     "Location",
     "Location",
@@ -22,6 +23,10 @@ export class WelcomeComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+  }
+
+  toggleSidebar() {
+    this.sidebarToggled = !this.sidebarToggled;
   }
 
 }
