@@ -36,13 +36,15 @@
         />
       </div>
     </div>
-    <div class="flex">
-      <button
-        type="submit"
-        class="!mx-auto bg-secondary-text hover:bg-primary opacity-40 hover:opacity-100 transition-fast hover:scale-105 rounded-lg drop-shadow-md w-36 h-16 uppercase tracking-[.25em]"
-      >
-        Login
-      </button>
+    <div class="flex justify-center">
+      <app-button
+        [buttonType]="1"
+        [isSubmit]="true"
+        [class]="'opacity-40 hover:opacity-100 uppercase tracking-[.25em]'"
+        [width]="'9rem'"
+        [height]="'4rem'"
+        [label]="'Login'"
+      ></app-button>
     </div>
   </form>
   <svg
