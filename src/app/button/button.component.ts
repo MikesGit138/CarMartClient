@@ -32,13 +32,13 @@ export class ButtonComponent implements OnInit {
         return "bg-primary"
       }
       case ButtonType.SECONDARY: {
-        return "bg-secondary-text hover:bg-primary"
+        return "bg-secondary hover:bg-primary"
       }
       case ButtonType.DANGER: {
         return "bg-danger"
       }
       case ButtonType.DANGER_SECONDARY: {
-        return "bg-secondary-text hover:bg-danger"
+        return "bg-secondary hover:bg-danger"
       }
       default: throw new DOMException("Invalid button type.");
     }

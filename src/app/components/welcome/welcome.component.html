@@ -1,7 +1,6 @@
 <div class="flex">
   <!--  Sidebar-->
-<app-sidebar></app-sidebar>
-  <!-- <div class=" bg-primary p-12 tablet:pt-12 tablet:px-6 phone:p-4 flex"></div> -->
+  <app-sidebar></app-sidebar>
   <div class="p-12 w-full tablet:pt-12 tablet:px-6 phone:p-4 flex">
     <!--  Content-->
     <div class="flex flex-col w-full p-24 phone:pt-28 tablet:p-8 phone:p-4 gap-24">
@@ -23,12 +22,12 @@
           <div
             class="grid grid-cols-4 laptop:grid-cols-3 tablet:grid-cols-2 phone:grid-cols-1 gap-4"
           >
-            <button
+            <app-button
               *ngFor="let button of buttons"
-              class="uppercase bg-secondary rounded-xl p-7 font-semibold tracking-[.1em] hover:bg-primary transition-faster hover:text-secondary"
-            >
-              {{ button }}
-            </button>
+              [buttonType]="1"
+              [label]="button"
+              [class]="'p-7 font-semibold tracking-[.1em] uppercase !rounded-xl'"
+            ></app-button>
           </div>
         </div>
       </div>
