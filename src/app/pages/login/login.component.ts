@@ -27,19 +27,17 @@ export class LoginComponent implements OnInit {
 
   showErrMsg(){
       this.showLogErr = !this.showLogErr
-      
+
   }
 
   loginProcess(){
     if (this.formGroup.valid){
-      this.jwtService.login(this.formGroup.value).subscribe(res => {
-        if (res){
-          console.log('everything worked!');
-          // console.log(res.payload)
-          // console.log(res.access_token)
+      this.jwtService.login(this.formGroup.value).subscribe({
+        next: () => {
           this.router.navigate(['/welcome'])
-        } else {
-          console.log('not working like intended');
+        },
+        error: err => {
+          console.error(err);
         }
       })
     }
