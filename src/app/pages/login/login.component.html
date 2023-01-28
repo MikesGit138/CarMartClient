@@ -11,29 +11,28 @@
   >
     <h3 class="uppercase text-center text-2xl !mb-16">Login</h3>
     <div>
-      <div>
+      <div class="mb-12">
         <label class="uppercase tracking-widest text-lg" for="username_in"
           >Username</label
         ><br />
-        <input
-          class="transition-faster !text-[0.85rem] block placeholder:!text-neutral-600 focus:outline-0 bg-transparent w-5/6 !px-2 !pt-2 !mb-16 !border-b-2 !border-black/20 focus:!border-blue-500"
-          type="text"
-          id="username_in"
-          placeholder="ENTER YOUR USERNAME"
-          formControlName="username"
-        />
+        <app-text-input
+          [formGroup]="formGroup"
+          [id]="'username_in'"
+          [placeholder]="'ENTER YOUR USERNAME'"
+          [formName]="'username'"
+        ></app-text-input>
       </div>
-      <div>
+      <div class="mb-12">
         <label class="uppercase tracking-widest" for="password_in"
           >Password</label
         ><br />
-        <input
-          class="transition-faster !text-[0.85rem] placeholder:!text-neutral-600 focus:outline-0 bg-transparent w-5/6 !px-2 !pt-2 !mb-6 !border-b-2 !border-black/20 focus:!border-blue-500"
-          type="password"
-          id="password_in"
-          placeholder="ENTER YOUR PASSWORD"
-          formControlName="password"
-        />
+        <app-text-input
+          [formGroup]="formGroup"
+          [id]="'password_in'"
+          [placeholder]="'ENTER YOUR PASSWORD'"
+          [formName]="'password'"
+          [password]="true"
+        ></app-text-input>
       </div>
     </div>
     <div class="flex justify-center">
