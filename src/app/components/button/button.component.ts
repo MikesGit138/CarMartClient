@@ -15,10 +15,10 @@ export enum ButtonType {
 export class ButtonComponent implements OnInit {
 
   @Input() class?: string;
-  @Input() buttonType?: ButtonType;
-  @Input() label?: string;
-  @Input() width?: string;
-  @Input() height?: string;
+  @Input() buttonType!: ButtonType;
+  @Input() label!: string;
+  @Input() width!: string;
+  @Input() height!: string;
   @Input() isDisabled?: boolean;
   @Input() isSubmit?: boolean;
 
