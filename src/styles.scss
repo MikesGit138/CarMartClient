@@ -61,3 +61,11 @@ html, body {
 ::-webkit-scrollbar-track {
   background: #292929;
 }
+
+form:-webkit-autofill {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+input:-webkit-autofill {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
