@@ -1,4 +1,6 @@
-<div class="{{getButtonTypeClass()}} {{class}} transition-fast hover:scale-105 rounded-lg drop-shadow-md cursor-pointer" [ngStyle]="{ width: width, height: height }">
-  <button *ngIf="isSubmit">{{label}}</button>
-  <p *ngIf="!isSubmit" class="text-center">{{label}}</p>
+<div
+  class="{{getButtonTypeClass()}} {{class}} flex justify-center text-center transition-fast hover:scale-105 rounded-lg drop-shadow-md cursor-pointer"
+  [ngStyle]="{ width: width, height: height }">
+  <button class="{{class}} w-full h-full transition-fast" *ngIf="isSubmit">{{label}}</button>
+  <p *ngIf="!isSubmit">{{label}}</p>
 </div>
