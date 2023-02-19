@@ -32,15 +32,14 @@ export class LoginComponent implements OnInit {
 
   loginProcess(){
     if (this.formGroup.valid){
-      this.jwtService.login(this.formGroup.value).subscribe(res => {
-        if (res){
-          console.log('everything worked!');
-          // console.log(res.payload)
-          // console.log(res.access_token)
-          this.router.navigate(['/welcome'])
-        } else {
-          console.log('not working like intended');
-        }
+      this.jwtService.login(this.formGroup.value).subscribe({
+        next: res => {
+          if(res){
+            console.log(res);
+            this.router.navigate(['/welcome']);
+          } 
+        },
+        error: err => console.log(err.message)
       })
     }
   }
