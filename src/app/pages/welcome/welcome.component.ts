@@ -9,8 +9,12 @@ import { JwtService } from 'src/app/services/jwt.service';
 export class WelcomeComponent implements OnInit {
 
   constructor(public jwtService: JwtService) { }
-  name: string = 'User';
-  sidebarToggled = false;
+  
+  private user_token = localStorage.getItem("TOKEN");
+  private user:any = this.jwtService.DecodeToken(this.user_token)
+  public name = this.user.username;
+  public sidebarToggled = false;
+
   buttons = [
     "Location",
     "Location",
