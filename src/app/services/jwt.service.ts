@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, tap } from 'rxjs';
 import { AuthService } from './auth.service';
-//import jwt_decode from 'jwt-decode';
 import jwtDecode, { JwtPayload } from "jwt-decode";
 
 @Injectable({
@@ -26,7 +25,7 @@ export class JwtService {
     )
   }
 
-  DecodeToken(token: string) {
+  DecodeToken(token: any) {
     try{
       return jwtDecode(token);
     } catch{

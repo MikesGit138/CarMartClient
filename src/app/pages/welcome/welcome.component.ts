@@ -10,8 +10,11 @@ import { User } from 'src/app/models/model';
 export class WelcomeComponent implements OnInit {
 
   constructor(public jwtService: JwtService) { }
-  name = User.username;
+  user_token = localStorage.getItem("TOKEN");
+  user:any = this.jwtService.DecodeToken(this.user_token)
+  name = this.user.username;
   sidebarToggled = false;
+
   buttons = [
     "Location",
     "Location",
