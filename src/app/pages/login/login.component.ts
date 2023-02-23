@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { JwtService } from 'src/app/services/jwt.service';
+import { User } from 'src/app/models/model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,8 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  formGroup!: FormGroup;
-  showLogErr = false
+
+  public formGroup!: FormGroup;
+  public showLogErr = false;
+  private decoded?:any;
+  public user = User;
+
   constructor(public router: Router, private jwtService: JwtService) { }
 
   ngOnInit(): void {
@@ -26,7 +31,6 @@ export class LoginComponent implements OnInit {
 
   showErrMsg(){
       this.showLogErr = !this.showLogErr
-      
   }
 
   loginProcess(){
@@ -34,9 +38,8 @@ export class LoginComponent implements OnInit {
       this.jwtService.login(this.formGroup.value).subscribe({
         next: res => {
           if(res){
-            //console.log(res)
-            console.log(this.jwtService.DecodeToken(res.access_token));
-        
+            this.decoded = this.jwtService.DecodeToken(res.access_token)
+            this.user.username = this.decoded.username
             this.router.navigate(['/welcome']);
           } 
         },
