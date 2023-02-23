@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 import { JwtService } from 'src/app/services/jwt.service';
 import { Router } from '@angular/router';
 
@@ -12,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
   showLogErr = false
-  constructor(private authService: AuthService, public router: Router, private jwtService: JwtService) { }
+  constructor(public router: Router, private jwtService: JwtService) { }
 
   ngOnInit(): void {
     this.initForm()
@@ -35,7 +34,9 @@ export class LoginComponent implements OnInit {
       this.jwtService.login(this.formGroup.value).subscribe({
         next: res => {
           if(res){
-            console.log(res);
+            //console.log(res)
+            console.log(this.jwtService.DecodeToken(res.access_token));
+        
             this.router.navigate(['/welcome']);
           } 
         },
