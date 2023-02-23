@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtService } from 'src/app/services/jwt.service';
-import { User } from 'src/app/models/model';
 
 @Component({
   selector: 'app-welcome',
@@ -10,10 +9,11 @@ import { User } from 'src/app/models/model';
 export class WelcomeComponent implements OnInit {
 
   constructor(public jwtService: JwtService) { }
-  user_token = localStorage.getItem("TOKEN");
-  user:any = this.jwtService.DecodeToken(this.user_token)
-  name = this.user.username;
-  sidebarToggled = false;
+  
+  private user_token = localStorage.getItem("TOKEN");
+  private user:any = this.jwtService.DecodeToken(this.user_token)
+  public name = this.user.username;
+  public sidebarToggled = false;
 
   buttons = [
     "Location",

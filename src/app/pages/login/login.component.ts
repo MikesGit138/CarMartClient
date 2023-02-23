@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { JwtService } from 'src/app/services/jwt.service';
-import { User } from 'src/app/models/model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +13,6 @@ export class LoginComponent implements OnInit {
   public formGroup!: FormGroup;
   public showLogErr = false;
   private decoded?:any;
-  public user = User;
 
   constructor(public router: Router, private jwtService: JwtService) { }
 
