@@ -2,21 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { catchError, Observable, map, tap, lastValueFrom } from 'rxjs';
-//import 'rxjs/add/operator/map'
-import { JwtService } from './jwt.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationService {
   private locationURL = `${environment.baseURL}/location`
-  user_token = localStorage.getItem("TOKEN")
-  private locations?:any
+  private user_token = localStorage.getItem("TOKEN")
   
-  constructor(private http: HttpClient, private jwt: JwtService) { }
-
-
-
+  constructor(private http: HttpClient) { }
 
   public getLocations():Observable<any[]>{
 
@@ -28,9 +22,5 @@ export class LocationService {
     return this.http.get<any[]>(this.locationURL, {headers})
   }
 
-  public async getLocationArray(){
-    this.getLocations()
-    return this.locations
-  }
 
 }
