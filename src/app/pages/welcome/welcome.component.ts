@@ -21,33 +21,28 @@ export class WelcomeComponent implements OnInit {
   constructor(public jwtService: JwtService, public locService: LocationService) { }
   
 
-  buttons = [
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-  ]
+  // buttons = [
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  // ]
 
   acceptData(){
-   //return lastValueFrom(this.locService.getLocations())
-    //console.log(this.locations)
-    //return this.locService.getLocations()
-    return this.locService.getLocationArray()
+    return this.locService.getLocations()
+            .subscribe(data => 
+              {this.locations = data, console.log(this.locations)})
     
   }
 
   ngOnInit(): void {
     console.log(this.User);
     console.log(this.user_token);
-    // this.locService.getLocations()
-    //  .subscribe(data => {this.locations = data})
-    //console.log("loc is ",this.locService.getLocationArray())
-    console.log(this.acceptData())
-    //console.log(this.locations)
+    this.acceptData()
   }
 
   toggleSidebar() {

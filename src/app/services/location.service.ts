@@ -15,21 +15,21 @@ export class LocationService {
   
   constructor(private http: HttpClient, private jwt: JwtService) { }
 
-  public async getLocations(){
+
+
+
+  public getLocations():Observable<any[]>{
+
     const user_token = localStorage.getItem("TOKEN")
     const headers = new HttpHeaders({
       "Authorization" : `Bearer ${user_token}`
     })
     
-     return this.http.get(this.locationURL, {headers}).subscribe(
-      res => this.locations = res,
-      err => console.log(err)
-     )
-    
+    return this.http.get<any[]>(this.locationURL, {headers})
   }
 
   public async getLocationArray(){
-    //this.getLocations()
+    this.getLocations()
     return this.locations
   }
 
