@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtService } from 'src/app/services/jwt.service';
 import { Model } from 'src/app/models/model';
+import { LocationService } from 'src/app/services/location.service';
+import { lastValueFrom, Observable, firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-welcome',
@@ -14,23 +16,33 @@ export class WelcomeComponent implements OnInit {
   public User = new Model(this.user_decoded.sub, this.user_decoded.username);
   public username = this.User.getUserName();
   public sidebarToggled = false;
+  locations?: any; 
 
-  constructor(public jwtService: JwtService) { }
+  constructor(public jwtService: JwtService, public locService: LocationService) { }
   
 
-  buttons = [
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-    "Location",
-  ]
+  // buttons = [
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  //   "Location",
+  // ]
+
+  acceptData(){
+    return this.locService.getLocations()
+            .subscribe(data => 
+              {this.locations = data, console.log(this.locations)})
+    
+  }
 
   ngOnInit(): void {
-    console.log(this.User)
+    console.log(this.User);
+    console.log(this.user_token);
+    this.acceptData()
   }
 
   toggleSidebar() {

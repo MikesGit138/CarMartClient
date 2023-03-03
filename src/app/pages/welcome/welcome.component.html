@@ -23,9 +23,9 @@
             class="grid grid-cols-4 laptop:grid-cols-3 tablet:grid-cols-2 phone:grid-cols-1 gap-4"
           >
             <app-button
-              *ngFor="let button of buttons"
+              *ngFor="let button of locations"
               [buttonType]="1"
-              [label]="button"
+              [label]="button.name"
               [class]="'p-7 font-semibold tracking-[.1em] uppercase !rounded-xl'"
             ></app-button>
           </div>
