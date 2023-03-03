@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         next: res => {
           if(res){
             this.decoded = this.jwtService.DecodeToken(res.access_token)
-            //this.user.username = this.decoded.username
+            console.log(this.decoded)
             this.router.navigate(['/welcome']);
           } 
         },
