@@ -1,9 +1,9 @@
 <div class="">
     <!-- sidebar -->
     <app-sidebar></app-sidebar>
-    <div class="p-12 w-full tablet:pt-12 tablet:px-6 phone:p-4 flex-col">
+    <div class="flex flex-col w-full p-24 phone:pt-28 tablet:p-8 phone:p-4 gap-8">
     <!-- content -->
-    <header class="p-20">
+    <header class="mb-6">
         <h1 class="text-primary capitalize font-black text-6xl phone:text-4xl mb-6 pointer-events-none">
             {{location}}
         </h1>
@@ -11,11 +11,27 @@
     </header>
     <!-- admin tools -->
     <section>
-        admin tools
+        <h4
+            class="uppercase font-bold text-2xl mb-5 tracking-[.15em] pointer-events-none"
+          >
+            Admin Tools
+          </h4>
+        <app-admin-tools></app-admin-tools>
     </section>
     <!-- store list -->
     <section>
-        store list
+        <h4 class="uppercase font-bold text-2xl mb-5 tracking-[.15em] pointer-events-none"
+        >Your stores</h4>
+        <div
+            class="grid grid-cols-4 laptop:grid-cols-3 tablet:grid-cols-2 phone:grid-cols-1 gap-4"
+          >
+        <app-button
+        *ngFor="let store of stores"
+        [buttonType]="1"
+        [label]="store"
+        [class]="'p-7 font-semibold tracking-[.1em] uppercase !rounded-xl'">
+    </app-button>
+    </div>
     </section>
     <!-- end of content -->
     </div>
