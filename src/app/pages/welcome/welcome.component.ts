@@ -15,7 +15,7 @@ export class WelcomeComponent implements OnInit {
   private User = new User(this.user_decoded.sub, this.user_decoded.username);
   public username = this.User.getUserName();
   public sidebarToggled = false;
-  public locations?: any; 
+  public locations?: any[]; 
 
   constructor(public jwtService: JwtService, public locService: LocationService) { }
 
