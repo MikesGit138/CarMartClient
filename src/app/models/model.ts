@@ -1,4 +1,4 @@
-export class Model{
+export class User{
     private sub: any;
     private username!: string;
 
