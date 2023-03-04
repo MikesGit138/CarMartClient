@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
+import { LocationComponent } from './pages/location/location.component';
+import { AdminToolsComponent } from './components/admin-tools/admin-tools/admin-tools.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { TextInputComponent } from './components/text-input/text-input.component
     SidebarComponent,
     ButtonComponent,
     TextInputComponent,
+    LocationComponent,
+    AdminToolsComponent,
   ],
   imports: [
     BrowserModule,

@@ -28,8 +28,8 @@ export class JwtService {
   DecodeToken(token: any) {
     try{
       return jwtDecode(token);
-    } catch{
-      console.log('error is from jwt-decode')
+    } catch (err){
+      console.log('error is from jwt-decode', err)
     }
     
     }
