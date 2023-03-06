@@ -22,5 +22,13 @@ export class LocationService {
     return this.http.get<any[]>(this.locationURL, {headers})
   }
 
+  public findLocation(id: any){
+    console.log(id)
+    const user_token = localStorage.getItem("TOKEN")
+    const headers = new HttpHeaders({
+      "Authorization" : `Bearer ${user_token}`
+    })
+    return this.http.get(this.locationURL + "/" + id, {headers})
+  }
 
 }

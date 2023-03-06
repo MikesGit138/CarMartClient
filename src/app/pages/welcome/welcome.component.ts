@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { JwtService } from 'src/app/services/jwt.service';
 import { User } from 'src/app/models/model';
 import { LocationService } from 'src/app/services/location.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { findIndex, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-welcome',
@@ -17,12 +19,23 @@ export class WelcomeComponent implements OnInit {
   public sidebarToggled = false;
   public locations?: any[]; 
 
-  constructor(public jwtService: JwtService, public locService: LocationService) { }
+  constructor(private jwtService: JwtService, 
+    private locService: LocationService,
+    private route: Router,
+     private actroute: ActivatedRoute) { }
 
   acceptData(){
     return this.locService.getLocations()
             .subscribe(data => 
               {this.locations = data, console.log(this.locations)})
+  }
+
+  goToLocation(loc: any){
+      //const id = Number(this.actroute.snapshot.paramMap.get('id'));
+      //const id = this.locations?.findIndex(loc)
+      //return this.route.navigate(['/location'])
+      this.locService.findLocation(loc.id)
+      return this.route.navigate(['/location/' + loc.id])
   }
 
   ngOnInit(): void {
@@ -34,5 +47,6 @@ export class WelcomeComponent implements OnInit {
   toggleSidebar() {
     this.sidebarToggled = !this.sidebarToggled;
   }
+
 
 }
