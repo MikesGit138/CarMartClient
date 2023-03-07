@@ -18,6 +18,7 @@ export class WelcomeComponent implements OnInit {
   public username = this.User.getUserName();
   public sidebarToggled = false;
   public locations?: any[]; 
+  public locationInfo?:Object;
 
   constructor(private jwtService: JwtService, 
     private locService: LocationService,
@@ -31,11 +32,12 @@ export class WelcomeComponent implements OnInit {
   }
 
   goToLocation(loc: any){
-      //const id = Number(this.actroute.snapshot.paramMap.get('id'));
-      //const id = this.locations?.findIndex(loc)
-      //return this.route.navigate(['/location'])
+    try{
       this.locService.findLocation(loc.id)
-      return this.route.navigate(['/location/' + loc.id])
+    }catch(e){
+      console.log('cannot go to location from goToLocation function',e)
+    }
+      return this.route.navigate(['/location/' + loc.id]) 
   }
 
   ngOnInit(): void {
