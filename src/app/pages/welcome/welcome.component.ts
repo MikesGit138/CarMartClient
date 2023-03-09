@@ -32,17 +32,18 @@ export class WelcomeComponent implements OnInit {
   }
 
   goToLocation(loc: any){
-    try{
-      this.locService.findLocation(loc.id)
-    }catch(e){
-      console.log('cannot go to location from goToLocation function',e)
-    }
-      return this.route.navigate(['/location/' + loc.id]) 
+    // try{
+    //   return this.locService.findLocation(loc.id)
+    // }catch(e){
+    //   return 'cannot go to location from goToLocation function'
+    // }
+      this.route.navigate(['/location/',loc.id]) 
+      return this.locService.findLocation(loc.id)
   }
 
   ngOnInit(): void {
-    console.log(this.User);
-    console.log(this.user_token);
+    //console.log(this.User);
+    //console.log(this.user_token);
     this.acceptData()
   }
 

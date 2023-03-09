@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { catchError, Observable } from 'rxjs';
+import { catchError, lastValueFrom, map, Observable, firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +25,20 @@ export class LocationService {
     const headers = new HttpHeaders({
       "Authorization" : `Bearer ${this.user_token}`
     })
-    return this.http.get(this.locationURL + "/" + id, {headers})
-    .subscribe(res => {this.locationInfo = res, console.log(this.locationInfo)})
+  
+     this.http.get(this.locationURL + "/" + id, {headers})
+    .subscribe({
+      next: res => this.locationInfo = res,
+      error: err => console.error(err),
+      //complete: () =>  {return this.locationInfo}
+      complete: () =>  console.log('frm findLocation() in location.service.ts',this.locationInfo)
+    });
+      return this.locationInfo
+
+  }
+
+  public getLocationInfo(){
+    return this.locationInfo
   }
 
 }

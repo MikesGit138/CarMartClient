@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LocationService } from 'src/app/services/location.service';
+import { firstValueFrom } from 'rxjs';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location',
@@ -6,12 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./location.component.scss']
 })
 export class LocationComponent implements OnInit {
-  public location = "Location";
-  @Input() storeList?:String[];
-  @Input() locationName?:String;
+  public location:any = "Location";
 
-  constructor() { }
-
+  constructor(private locService: LocationService,
+    private actRoute: ActivatedRoute,
+    private route: Router) { }
+  // locationInfo = this.locService.getLocationInfo()
+  locationInfo:any
+  public locationId:any;
   stores = [
     "stores",
     "stores",
@@ -23,6 +29,22 @@ export class LocationComponent implements OnInit {
     "stores",
   ]
   ngOnInit(): void {
+  //console.log('from the location page', this.locationInfo)
+  // let id = this.actRoute.snapshot.paramMap.get('id')
+  // parseInt(id!)
+  // this.locationId = id;
+  this.actRoute.paramMap.subscribe(
+    (params: ParamMap) => {
+      let id = params.get('id')
+      parseInt(id!)
+      this.locationId = id
+      this.locationInfo = this.locService.findLocation(this.locationId)
+      this.location = this.locationInfo.name
+      console.log(this.locationInfo)
+    },
+  
+  )
+
   }
 
 }
