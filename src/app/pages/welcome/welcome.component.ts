@@ -28,7 +28,7 @@ export class WelcomeComponent implements OnInit {
   acceptData(){
     return this.locService.getLocations()
             .subscribe(data => 
-              {this.locations = data, console.log(this.locations)})
+              {this.locations = data})
   }
 
   goToLocation(loc: any){

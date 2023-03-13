@@ -26,14 +26,14 @@ export class LocationService {
       "Authorization" : `Bearer ${this.user_token}`
     })
   
-     this.http.get(this.locationURL + "/" + id, {headers})
-    .subscribe({
-      next: res => this.locationInfo = res,
-      error: err => console.error(err),
-      //complete: () =>  {return this.locationInfo}
-      complete: () =>  console.log('frm findLocation() in location.service.ts',this.locationInfo)
-    });
-      return this.locationInfo
+     return this.http.get(this.locationURL + "/" + id, {headers})
+    // .subscribe({
+    //   next: res => this.locationInfo = res,
+    //   error: err => console.error(err),
+    //   complete: () =>  {return this.locationInfo}
+    //   //complete: () =>  console.log('frm findLocation() in location.service.ts',this.locationInfo)
+    // });
+      //return this.locationInfo
 
   }
 
