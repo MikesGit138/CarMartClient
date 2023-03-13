@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocationService } from 'src/app/services/location.service';
-import { firstValueFrom } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Router } from '@angular/router';
 
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./location.component.scss']
 })
 export class LocationComponent implements OnInit {
-  public location:any = "Location";
+  public location:any;
   public stores:any;
 
   constructor(private locService: LocationService,
@@ -32,8 +31,7 @@ export class LocationComponent implements OnInit {
   .subscribe({next : res => this.locationInfo = res,
               complete: () => {
                 this.location = this.locationInfo.name,
-                this.stores = this.locationInfo.stores,
-                console.log(this.stores[0].name)
+                this.stores = this.locationInfo.stores
               }
             })
 

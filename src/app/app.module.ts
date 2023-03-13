@@ -13,6 +13,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { LocationComponent } from './pages/location/location.component';
 import { AdminToolsComponent } from './components/admin-tools/admin-tools/admin-tools.component';
+import { ManageLocationsComponent } from './pages/manage-locations/manage-locations/manage-locations.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { AdminToolsComponent } from './components/admin-tools/admin-tools/admin-
     TextInputComponent,
     LocationComponent,
     AdminToolsComponent,
+    ManageLocationsComponent,
+    
   ],
   imports: [
     BrowserModule,
